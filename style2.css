@@ -1,0 +1,15 @@
+body {font-family: Arial, Helvetica, sans-serif;}
+div p {
+    text-decoration: underline;
+}
+.naznaka p {
+    color:red;
+}
+.naznaka .tekst {
+    background-color: yellow;
+    font-style: italic;
+}
+div > span {
+    color: red;
+border-bottom: 2px solid blue;
+}
