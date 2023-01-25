@@ -1,36 +1,37 @@
 
 
+body {
+    overflow: hidden;
+}
 .header {
     float: left;
     width: 100%;
     padding: 0.5em 0;
+    display: block;
 }
-.header h1{
-    font-family: Arial, sans-serif;
+.header h1 {
+    font-family: Arial, Helvetica, sans-serif;
     color: #6a4aed;
     font-size: 26px;
     font-weight: 700;
-    margin: 0;
+    margin: 0 -30px;
     line-height: normal;
 }
-header {
-    display:block;
-}
-div.header-line{
+div.header-line {
     box-sizing: border-box;
     margin: 0 auto;
     width: 25rem;
-    background: white;
+    background-color: white;
     padding: 30px;
     margin: 0 auto;
-    text-align:center;
+    text-align: center;
 }
 .full-width-header {
     position: relative;
-    margin:0 -30px;
+    margin: 0 -30px;
     padding: .25rem 30px;
-    background: white;
-    color: white;
+    background-color: white;
+    color: red;
     font-size: 1.125rem;
 }
 .full-width-header::before, .full-width-header::after {
@@ -40,27 +41,26 @@ div.header-line{
     bottom: 0;
     width: 960px;
     right: 100%;
-    background: red;
-    
+    background-color: red;
+}
+.full-width-header::after {
+    width: 930px;
+    left: 100%;
+    background-color: blue;
+}
+.content {
+    line-height: 28px;
 }
 
-.full-width-header::after {
-    width: 960px;
-    left: 100%;
-    background: blue;
-}
-.tabs-container{
+.tabs-container {
     position: relative;
-    background: #2652cc;
+    background-color: #2652cc;
     width: 120px;
     height: 100vh;
     float: left;
     z-index: 20;
 }
-.tabs-container label:hover{
-    background: darkslateblue;
-}
-.tabs-container label{
+.tabs-container label {
     position: relative;
     padding: 10px;
     border-bottom: 1px solid greenyellow;
@@ -70,6 +70,40 @@ div.header-line{
     cursor: pointer;
     user-select: none;
 }
-input[name="tab"]{
+.tabs-container label:hover {
+    background-color: darkslateblue;
+}
+input[name="tab"] {
     display: none;
+}
+.tab-content {
+    position: relative;
+    background-color: #eee;
+    width: calc(100% - 120px); /*Kalkuliramo širinu u odnosu na širinu koju smo definirali za širinu menija */
+    min-height: 100vh;
+    padding: 15px;
+    float: left;
+    box-sizing: border-box;
+    z-index: 19;
+    display: none;
+}
+.tab-content::after {
+    content: "";
+    clear: both;
+}
+
+input[name="tab"]:checked + .tab-content {
+    display: block;
+    animation: slide 0.5s forwards;
+}
+@keyframes slide {
+    from {
+        left: -100%;
+        opacity: 0;
+
+    }
+    to {
+        left: 0;
+        opacity: 1;
+    }
 }
